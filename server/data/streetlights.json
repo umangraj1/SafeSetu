@@ -1,0 +1,121 @@
+[
+  {
+    "id": "light_1",
+    "name": "MG Road",
+    "density": 9,
+    "center": { "lat": 12.9758, "lng": 77.6068 },
+    "radius": 600
+  },
+  {
+    "id": "light_2",
+    "name": "Brigade Road",
+    "density": 9,
+    "center": { "lat": 12.9716, "lng": 77.6070 },
+    "radius": 400
+  },
+  {
+    "id": "light_3",
+    "name": "Indiranagar 100ft Road",
+    "density": 8,
+    "center": { "lat": 12.9784, "lng": 77.6408 },
+    "radius": 700
+  },
+  {
+    "id": "light_4",
+    "name": "Koramangala Inner Ring Road",
+    "density": 8,
+    "center": { "lat": 12.9352, "lng": 77.6245 },
+    "radius": 600
+  },
+  {
+    "id": "light_5",
+    "name": "Majestic Area",
+    "density": 3,
+    "center": { "lat": 12.9767, "lng": 77.5713 },
+    "radius": 600
+  },
+  {
+    "id": "light_6",
+    "name": "Peenya Industrial",
+    "density": 2,
+    "center": { "lat": 13.0300, "lng": 77.5190 },
+    "radius": 800
+  },
+  {
+    "id": "light_7",
+    "name": "Hosur Road",
+    "density": 4,
+    "center": { "lat": 12.9352, "lng": 77.6102 },
+    "radius": 500
+  },
+  {
+    "id": "light_8",
+    "name": "Outer Ring Road Marathahalli",
+    "density": 6,
+    "center": { "lat": 12.9568, "lng": 77.7010 },
+    "radius": 600
+  },
+  {
+    "id": "light_9",
+    "name": "Whitefield Main Road",
+    "density": 7,
+    "center": { "lat": 12.9698, "lng": 77.7500 },
+    "radius": 500
+  },
+  {
+    "id": "light_10",
+    "name": "Electronic City Elevated Expressway",
+    "density": 7,
+    "center": { "lat": 12.8460, "lng": 77.6600 },
+    "radius": 500
+  },
+  {
+    "id": "light_11",
+    "name": "Bannerghatta Road",
+    "density": 5,
+    "center": { "lat": 12.8900, "lng": 77.5970 },
+    "radius": 800
+  },
+  {
+    "id": "light_12",
+    "name": "Tumkur Road",
+    "density": 4,
+    "center": { "lat": 13.0280, "lng": 77.5430 },
+    "radius": 700
+  },
+  {
+    "id": "light_13",
+    "name": "Jayanagar 4th Block",
+    "density": 8,
+    "center": { "lat": 12.9280, "lng": 77.5830 },
+    "radius": 500
+  },
+  {
+    "id": "light_14",
+    "name": "Banashankari",
+    "density": 5,
+    "center": { "lat": 12.9255, "lng": 77.5468 },
+    "radius": 400
+  },
+  {
+    "id": "light_15",
+    "name": "Hebbal Ring Road",
+    "density": 6,
+    "center": { "lat": 13.0358, "lng": 77.5970 },
+    "radius": 500
+  },
+  {
+    "id": "light_16",
+    "name": "Yelahanka",
+    "density": 5,
+    "center": { "lat": 13.1007, "lng": 77.5963 },
+    "radius": 600
+  },
+  {
+    "id": "light_17",
+    "name": "Attiguppe",
+    "density": 3,
+    "center": { "lat": 12.9510, "lng": 77.5410 },
+    "radius": 400
+  }
+]

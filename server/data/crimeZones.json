@@ -1,0 +1,137 @@
+[
+  {
+    "id": "crime_1",
+    "name": "Majestic Area",
+    "severity": 9,
+    "types": ["theft", "harassment", "assault"],
+    "center": { "lat": 12.9767, "lng": 77.5713 },
+    "radius": 800,
+    "description": "High crime area especially after dark"
+  },
+  {
+    "id": "crime_2",
+    "name": "KR Market Zone",
+    "severity": 8,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9634, "lng": 77.5779 },
+    "radius": 600,
+    "description": "Crowded during day, unsafe at night"
+  },
+  {
+    "id": "crime_3",
+    "name": "Shivajinagar Bus Stand",
+    "severity": 7,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9833, "lng": 77.6044 },
+    "radius": 500,
+    "description": "Frequent incidents of pickpocketing and harassment"
+  },
+  {
+    "id": "crime_4",
+    "name": "Hosur Road Underpass",
+    "severity": 8,
+    "types": ["assault", "robbery"],
+    "center": { "lat": 12.9352, "lng": 77.6102 },
+    "radius": 400,
+    "description": "Poorly lit underpass, multiple robbery reports"
+  },
+  {
+    "id": "crime_5",
+    "name": "Peenya Industrial Area",
+    "severity": 7,
+    "types": ["theft", "assault"],
+    "center": { "lat": 13.0300, "lng": 77.5190 },
+    "radius": 900,
+    "description": "Deserted roads at night in industrial zone"
+  },
+  {
+    "id": "crime_6",
+    "name": "Bommanahalli Junction",
+    "severity": 6,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9010, "lng": 77.6180 },
+    "radius": 500,
+    "description": "Frequent chain snatching incidents"
+  },
+  {
+    "id": "crime_7",
+    "name": "Yeshwanthpur Railway Area",
+    "severity": 7,
+    "types": ["robbery", "harassment"],
+    "center": { "lat": 13.0280, "lng": 77.5430 },
+    "radius": 600,
+    "description": "Isolated stretches near railway tracks"
+  },
+  {
+    "id": "crime_8",
+    "name": "Marathahalli Bridge Stretch",
+    "severity": 6,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9568, "lng": 77.7010 },
+    "radius": 500,
+    "description": "Heavy traffic during day, deserted at night"
+  },
+  {
+    "id": "crime_9",
+    "name": "Attiguppe Underpass",
+    "severity": 7,
+    "types": ["assault", "robbery"],
+    "center": { "lat": 12.9510, "lng": 77.5410 },
+    "radius": 350,
+    "description": "Dark underpass area with minimal surveillance"
+  },
+  {
+    "id": "crime_10",
+    "name": "Silk Board Junction Outskirts",
+    "severity": 6,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9178, "lng": 77.6230 },
+    "radius": 550,
+    "description": "Isolated service roads around the junction"
+  },
+  {
+    "id": "crime_11",
+    "name": "Hebbal Flyover Area",
+    "severity": 5,
+    "types": ["theft"],
+    "center": { "lat": 13.0358, "lng": 77.5970 },
+    "radius": 450,
+    "description": "Occasional incidents along service roads"
+  },
+  {
+    "id": "crime_12",
+    "name": "Whitefield Back Roads",
+    "severity": 5,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.9698, "lng": 77.7500 },
+    "radius": 700,
+    "description": "Under-development area with poor infrastructure"
+  },
+  {
+    "id": "crime_13",
+    "name": "Banashankari Temple Road Late Night",
+    "severity": 6,
+    "types": ["harassment", "robbery"],
+    "center": { "lat": 12.9255, "lng": 77.5468 },
+    "radius": 400,
+    "description": "Isolated after temple hours"
+  },
+  {
+    "id": "crime_14",
+    "name": "Electronic City Phase 2 Interior",
+    "severity": 6,
+    "types": ["theft", "harassment"],
+    "center": { "lat": 12.8460, "lng": 77.6600 },
+    "radius": 700,
+    "description": "Deserted roads in non-IT park areas at night"
+  },
+  {
+    "id": "crime_15",
+    "name": "Madiwala Lake Area",
+    "severity": 5,
+    "types": ["harassment"],
+    "center": { "lat": 12.9220, "lng": 77.6160 },
+    "radius": 350,
+    "description": "Isolated area near lake after sunset"
+  }
+]

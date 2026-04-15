@@ -1,0 +1,107 @@
+[
+  {
+    "id": "crowd_1",
+    "name": "MG Road",
+    "center": { "lat": 12.9758, "lng": 77.6068 },
+    "radius": 600,
+    "density": { "day": "high", "evening": "high", "night": "medium" }
+  },
+  {
+    "id": "crowd_2",
+    "name": "Brigade Road",
+    "center": { "lat": 12.9716, "lng": 77.6070 },
+    "radius": 400,
+    "density": { "day": "high", "evening": "high", "night": "medium" }
+  },
+  {
+    "id": "crowd_3",
+    "name": "Koramangala",
+    "center": { "lat": 12.9352, "lng": 77.6245 },
+    "radius": 700,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_4",
+    "name": "Indiranagar",
+    "center": { "lat": 12.9784, "lng": 77.6408 },
+    "radius": 600,
+    "density": { "day": "high", "evening": "high", "night": "medium" }
+  },
+  {
+    "id": "crowd_5",
+    "name": "Majestic Bus Station",
+    "center": { "lat": 12.9767, "lng": 77.5713 },
+    "radius": 500,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_6",
+    "name": "KR Market",
+    "center": { "lat": 12.9634, "lng": 77.5779 },
+    "radius": 500,
+    "density": { "day": "high", "evening": "low", "night": "low" }
+  },
+  {
+    "id": "crowd_7",
+    "name": "Whitefield IT Park",
+    "center": { "lat": 12.9698, "lng": 77.7500 },
+    "radius": 800,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_8",
+    "name": "Electronic City",
+    "center": { "lat": 12.8460, "lng": 77.6600 },
+    "radius": 800,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_9",
+    "name": "Peenya Industrial",
+    "center": { "lat": 13.0300, "lng": 77.5190 },
+    "radius": 700,
+    "density": { "day": "medium", "evening": "low", "night": "low" }
+  },
+  {
+    "id": "crowd_10",
+    "name": "Jayanagar Shopping Complex",
+    "center": { "lat": 12.9280, "lng": 77.5830 },
+    "radius": 500,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_11",
+    "name": "Marathahalli",
+    "center": { "lat": 12.9568, "lng": 77.7010 },
+    "radius": 500,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_12",
+    "name": "Hebbal",
+    "center": { "lat": 13.0358, "lng": 77.5970 },
+    "radius": 500,
+    "density": { "day": "medium", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_13",
+    "name": "Silk Board Area",
+    "center": { "lat": 12.9178, "lng": 77.6230 },
+    "radius": 400,
+    "density": { "day": "high", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_14",
+    "name": "Banashankari",
+    "center": { "lat": 12.9255, "lng": 77.5468 },
+    "radius": 500,
+    "density": { "day": "medium", "evening": "medium", "night": "low" }
+  },
+  {
+    "id": "crowd_15",
+    "name": "Yeshwanthpur",
+    "center": { "lat": 13.0280, "lng": 77.5430 },
+    "radius": 500,
+    "density": { "day": "medium", "evening": "low", "night": "low" }
+  }
+]
