@@ -36,13 +36,13 @@ function ScoreBar({ factor, score }) {
   const capped = Math.min(100, Math.max(0, score));
   return (
     <div className="flex items-center gap-2.5">
-      <span className="text-sm">{factor.icon}</span>
+      <span className="text-sm" aria-hidden="true">{factor.icon}</span>
       <div className="flex-1">
         <div className="flex justify-between mb-0.5">
           <span className="text-[11px] text-gray-600 font-medium">{factor.label}</span>
           <span className="text-[11px] font-bold text-gray-700">{capped}%</span>
         </div>
-        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden" role="progressbar" aria-valuenow={capped} aria-valuemin={0} aria-valuemax={100} aria-label={`${factor.label}: ${capped}%`}>
           <div
             className={`h-full rounded-full bg-linear-to-r ${factor.gradient} transition-all duration-700 ease-out`}
             style={{ width: `${capped}%` }}
@@ -91,6 +91,11 @@ function RouteCard({ route, index, isSelected, onSelect }) {
           : 'border-gray-100 bg-white hover:border-gray-200 hover:shadow-md'
       }`}
       onClick={() => onSelect(index)}
+      role="button"
+      tabIndex={0}
+      aria-selected={isSelected}
+      aria-label={`${route.label}: ${route.overall}% safety score, ${route.safetyLevel}, ${route.duration}, ${route.distance}`}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(index); } }}
     >
       <div className="p-3.5">
         {/* Top row: label + badge */}
@@ -195,7 +200,7 @@ export default function RouteResults({ results, selectedRoute, onSelectRoute, on
   return (
     <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
       <div className="mx-auto max-w-lg w-full px-3 pb-3 pointer-events-auto">
-        <div className="glass rounded-2xl shadow-2xl p-3 max-h-[55vh] overflow-y-auto space-y-2.5 animate-slide-up">
+        <div className="glass rounded-2xl shadow-2xl p-3 max-h-[55vh] overflow-y-auto space-y-2.5 animate-slide-up" role="region" aria-label="Route analysis results" aria-live="polite">
           {/* Header */}
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">

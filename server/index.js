@@ -1,13 +1,64 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const crimeZones = require('./data/crimeZones.json');
 const streetlights = require('./data/streetlights.json');
 const crowdDensity = require('./data/crowdDensity.json');
 const accidentZones = require('./data/accidentZones.json');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+
+// Security: HTTP headers hardening
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://maps.googleapis.com", "'unsafe-inline'"],
+      styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+      imgSrc: ["'self'", "https://*.googleapis.com", "https://*.gstatic.com", "data:"],
+      connectSrc: ["'self'", "https://maps.googleapis.com", "https://*.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      frameSrc: ["'self'", "https://www.google.com"],
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+}));
+
+// Security: CORS — restrict to known origins
+const ALLOWED_ORIGINS = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+  process.env.CLIENT_ORIGIN,
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (server-to-server, curl, etc.)
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'If-None-Match'],
+  maxAge: 600,
+}));
+
+// Security: Rate limiting
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, please try again later.' },
+});
+app.use('/api/', apiLimiter);
+
+// Security: Limit request body size
+app.use(express.json({ limit: '100kb' }));
 
 const PORT = process.env.PORT || 3001;
 
@@ -277,6 +328,26 @@ app.post('/api/route/score', (req, res) => {
     return res.status(400).json({ error: 'routes array is required' });
   }
 
+  // Security: Validate input bounds
+  if (routes.length > 10) {
+    return res.status(400).json({ error: 'Maximum 10 routes allowed per request' });
+  }
+
+  for (const route of routes) {
+    if (!route.points || !Array.isArray(route.points)) {
+      return res.status(400).json({ error: 'Each route must have a points array' });
+    }
+    if (route.points.length > 5000) {
+      return res.status(400).json({ error: 'Each route can have at most 5000 points' });
+    }
+    for (const pt of route.points) {
+      if (typeof pt.lat !== 'number' || typeof pt.lng !== 'number' ||
+          pt.lat < -90 || pt.lat > 90 || pt.lng < -180 || pt.lng > 180) {
+        return res.status(400).json({ error: 'Invalid coordinate: lat must be -90..90, lng must be -180..180' });
+      }
+    }
+  }
+
   // Clamp hour to valid range 0–23
   const rawHour = hour !== undefined ? hour : new Date().getHours();
   const h = Math.max(0, Math.min(23, Math.round(rawHour)));
@@ -304,6 +375,11 @@ app.post('/api/route/score', (req, res) => {
   res.json({ results, timePeriod: getTimePeriod(h), hour: h });
 });
 
-app.listen(PORT, () => {
-  console.log(`🛡️  Safe Route Finder API running on port ${PORT}`);
-});
+// Only start the server if this file is run directly (not imported for testing)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🛡️  Safe Route Finder API running on port ${PORT}`);
+  });
+}
+
+module.exports = { app, haversine, getTimePeriod, computeBBox, inBBox, isInZone, scoreRoute };

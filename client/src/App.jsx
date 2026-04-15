@@ -475,21 +475,21 @@ function App() {
   }, []);
 
   return (
-    <div className="relative h-full w-full">
+    <main id="main-content" className="relative h-full w-full" role="main" aria-label="SafeSetu Route Finder">
       {/* Map container */}
-      <div ref={mapRef} className="absolute inset-0" />
+      <div ref={mapRef} className="absolute inset-0" role="img" aria-label="Interactive map of Bangalore showing safety zones and routes" />
 
       {/* Loading overlay */}
       {!mapsLoaded && (
-        <div className="absolute inset-0 bg-linear-to-br from-purple-50 via-white to-pink-50 flex items-center justify-center z-50">
+        <div className="absolute inset-0 bg-linear-to-br from-purple-50 via-white to-pink-50 flex items-center justify-center z-50" role="status" aria-live="polite" aria-label="Loading map">
           <div className="text-center space-y-4">
-            <div className="relative w-16 h-16 mx-auto">
+            <div className="relative w-16 h-16 mx-auto" aria-hidden="true">
               <div className="absolute inset-0 border-4 border-purple-200 rounded-full" />
               <div className="absolute inset-0 border-4 border-transparent border-t-purple-600 rounded-full animate-spin" />
               <div className="absolute inset-2 border-4 border-transparent border-b-pink-500 rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-800">SafeSetu</h2>
+              <h1 className="text-lg font-bold text-gray-800">SafeSetu</h1>
               <p className="text-sm text-gray-400 mt-1">Loading your map...</p>
             </div>
           </div>
@@ -498,7 +498,7 @@ function App() {
 
       {/* Inline error banner */}
       {error && (
-        <div className="absolute top-20 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none animate-slide-up">
+        <div className="absolute top-20 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none animate-slide-up" role="alert" aria-live="assertive">
           <div className="pointer-events-auto flex items-center gap-3 bg-red-600 text-white text-sm font-semibold px-4 py-3 rounded-2xl shadow-xl max-w-md w-full">
             <span className="flex-1">⚠️ {error}</span>
             <button
@@ -585,7 +585,7 @@ function App() {
 
       {/* SOS Button */}
       <SOSButton visible={journeyActive || journeyStarted} />
-    </div>
+    </main>
   );
 }
 

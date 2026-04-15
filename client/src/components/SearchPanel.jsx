@@ -130,7 +130,7 @@ export default function SearchPanel({
   return (
     <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
       <div className="mx-auto max-w-lg w-full px-3 pt-3 pointer-events-auto">
-        <div className="glass rounded-2xl shadow-xl overflow-hidden animate-fade-in">
+        <div className="glass rounded-2xl shadow-xl overflow-hidden animate-fade-in" role="search" aria-label="Route search">
           {/* Header */}
           <div className="px-4 py-2 bg-linear-to-r from-purple-600 via-purple-500 to-pink-500">
             <div className="flex items-center gap-2.5">
@@ -166,6 +166,7 @@ export default function SearchPanel({
               <div className="flex-1 space-y-2">
                 {/* Origin input */}
                 <div className="relative group">
+                  <label htmlFor="origin-input" className="sr-only">Starting location</label>
                   <input
                     ref={originRef}
                     id="origin-input"
@@ -173,6 +174,7 @@ export default function SearchPanel({
                     placeholder="Where are you?"
                     value={origin}
                     onChange={(e) => setOrigin(e.target.value)}
+                    autoComplete="street-address"
                     className="w-full px-3 pr-8 py-2.5 text-sm bg-gray-50/80 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-300 focus:bg-white placeholder:text-gray-400 transition-all"
                   />
                   <button
@@ -187,6 +189,7 @@ export default function SearchPanel({
 
                 {/* Destination input */}
                 <div className="relative">
+                  <label htmlFor="destination-input" className="sr-only">Destination</label>
                   <input
                     ref={destRef}
                     id="destination-input"
@@ -194,6 +197,7 @@ export default function SearchPanel({
                     placeholder="Where to?"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
+                    autoComplete="street-address"
                     className="w-full px-3 py-2.5 text-sm bg-gray-50/80 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-300 focus:bg-white placeholder:text-gray-400 transition-all"
                   />
                 </div>
@@ -217,8 +221,8 @@ export default function SearchPanel({
 
             {/* Time selector */}
             <div>
-              <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">Travel Time</p>
-              <div className="flex gap-1.5">
+              <p id="travel-time-label" className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">Travel Time</p>
+              <div className="flex gap-1.5" role="radiogroup" aria-labelledby="travel-time-label">
                 {TIME_OPTIONS.map((opt) => {
                   const Icon = opt.icon;
                   const isActive = timeOption === opt.value;
@@ -226,6 +230,9 @@ export default function SearchPanel({
                     <button
                       key={opt.value}
                       onClick={() => setTimeOption(opt.value)}
+                      role="radio"
+                      aria-checked={isActive}
+                      aria-label={`Travel time: ${opt.label}`}
                       className={`flex-1 flex flex-col items-center gap-1 py-1.5 rounded-xl text-[10px] font-semibold transition-all ${
                         isActive
                           ? 'bg-purple-600 text-white shadow-md shadow-purple-200'
@@ -244,6 +251,7 @@ export default function SearchPanel({
             <button
               onClick={handleSearch}
               disabled={!origin || !destination || loading}
+              aria-busy={loading}
               className="w-full py-2.5 bg-linear-to-r from-purple-600 via-purple-500 to-pink-500 text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-purple-200 transition-all active:scale-[0.98] relative overflow-hidden group"
             >
               {loading ? (

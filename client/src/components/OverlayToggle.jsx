@@ -22,6 +22,8 @@ export default function OverlayToggle({ activeOverlays, onToggle }) {
           open ? 'bg-purple-600 hover:bg-purple-700' : 'glass hover:shadow-xl'
         }`}
         title="Toggle safety overlays"
+        aria-label={`Toggle safety overlays, ${activeCount} active`}
+        aria-expanded={open}
       >
         {open ? (
           <X size={17} className="text-white" />

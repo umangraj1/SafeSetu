@@ -14,10 +14,42 @@
     <!-- Inter font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SafeSetu - Safe Route Finder",
+      "description": "Find the safest route for women traveling alone in Bangalore with real-time crime, lighting, and crowd safety analysis.",
+      "url": "https://safesetu.netlify.app",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "SafeSetu"
+      }
+    }
+    </script>
+
     <title>Safe Route Finder — Safest Routes in Bangalore</title>
   </head>
   <body>
-    <div id="root"></div>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-100 focus:bg-purple-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-bold">Skip to main content</a>
+    <div id="root" role="application" aria-label="SafeSetu - Safe Route Finder"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

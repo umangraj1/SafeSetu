@@ -34,7 +34,7 @@ export default function JourneyBar({ route, onEndJourney }) {
   return (
     <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
       <div className="mx-auto max-w-lg w-full px-3 pb-3 pointer-events-auto">
-        <div className="journey-bar rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+        <div className="journey-bar rounded-2xl shadow-2xl overflow-hidden animate-slide-up" role="region" aria-label="Active journey navigation" aria-live="polite">
           {/* Top colored accent */}
           <div className={`h-1 bg-linear-to-r ${colors.bg}`} />
 
@@ -89,6 +89,7 @@ export default function JourneyBar({ route, onEndJourney }) {
             {/* End Journey button */}
             <button
               onClick={onEndJourney}
+              aria-label="End current journey and return to route selection"
               className="w-full py-2.5 bg-white/10 hover:bg-red-500/20 border border-white/10 hover:border-red-400/30 rounded-xl text-sm font-bold text-gray-300 hover:text-red-300 flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
             >
               <X size={14} />
